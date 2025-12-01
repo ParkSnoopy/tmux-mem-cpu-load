@@ -139,8 +139,8 @@ void print_help()
     << "\tEnable blending bg/fg color (depending on -p or -q use) with segment to right\n"
     << "\tProvide color to be used depending on -p or -q option for seamless segment blending\n"
     << "\tColor is an integer value which uses the standard tmux color palette values\n"
-    << "-i <value>, --interval <value>\n"
-    << "\tSet tmux status refresh interval in seconds. Default: 1 second\n"
+    //<< "-i <value>, --interval <value>\n"
+    //<< "\tSet tmux status refresh interval in seconds. Default: 1 second\n"
     << "-g <value>, --graph-lines <value>\n"
     << "\tSet how many lines should be drawn in a graph. Default: 10\n"
     << "-m <value>, --mem-mode <value>\n"
@@ -179,7 +179,7 @@ int main( int argc, char** argv )
     { "powerline-left", no_argument, NULL, 'p' },
     { "powerline-right", no_argument, NULL, 'q' },
     { "vertical-graph", no_argument, NULL, 'v' },
-    { "interval", required_argument, NULL, 'i' },
+    //{ "interval", no_argument, NULL, 'i' },
     { "graph-lines", required_argument, NULL, 'g' },
     { "mem-mode", required_argument, NULL, 'm' },
     { "cpu-mode", required_argument, NULL, 't' },
@@ -231,14 +231,14 @@ int main( int argc, char** argv )
         }
         right_color = atoi( optarg ) ;
         break;
-      case 'i': // --interval, -i
+      /*case 'i': // --interval, -i
         if( atoi( optarg ) < 1 )
           {
             std::cerr << "Status interval argument must be one or greater.\n";
             return EXIT_FAILURE;
           }
         cpu_usage_delay = atoi( optarg ) * 1000000 - 10000;
-        break;
+        break;*/
       case 'g': // --graph-lines, -g
         if( atoi( optarg ) < 0 )
           {
